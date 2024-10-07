@@ -1,5 +1,3 @@
-What I’m going to do: I'll provide a one-page `README.md` file for easy copy-pasting. It will be concise and describe the entire project clearly.
-
 ### `README.md`
 
 ```markdown
