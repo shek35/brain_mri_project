@@ -41,7 +41,6 @@ This project is a deep learning solution for classifying Brain MRI images as **T
 
 3. **Install dependencies**:
    ```bash
-   pip install -r requirements.txt
    ```
 
 4. **Download and place the dataset**:
@@ -78,5 +77,3 @@ You can test the `/predict` endpoint using Postman or cURL. Example with Postman
 ## License
 This project is open-source and available under the MIT License.
 ```
-
-This `README.md` provides all the essential information in a concise format and is ready for easy copy-pasting. Let me know if you need any modifications or additional details!
