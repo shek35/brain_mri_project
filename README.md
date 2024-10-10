@@ -1,79 +1,41 @@
-### `README.md`
-
 ```markdown
-# Brain MRI Tumor Detection
+# Brain Tumor Detection using TensorFlow
 
-This project is a deep learning solution for classifying Brain MRI images as **Tumor** or **No Tumor** using TensorFlow and Keras. It includes the full pipeline for data preparation, model training, and deployment via a REST API built with Flask.
-
-## Project Overview
-
-- **Goal**: Use a Convolutional Neural Network (CNN) to classify Brain MRI images for tumor detection.
-- **Tools Used**: Python, TensorFlow, Keras, OpenCV, Flask, Postman.
-- **Deployment**: The trained model is deployed as a REST API using Flask, enabling easy integration into other systems.
+## Overview
+This project aims to detect brain tumors using MRI images with a Convolutional Neural Network (CNN) built using TensorFlow. The model classifies MRI scans as either containing a tumor or being tumor-free.
 
 ## Dataset
-
-- **Source**: The dataset used for this project is the [Brain MRI Images for Brain Tumor Detection Dataset](https://www.kaggle.com/datasets/navoneel/brain-mri-images-for-brain-tumor-detection) available on Kaggle.
-- **Data Structure**: The dataset consists of two categories of images — `yes` (with tumor) and `no` (without tumor).
+- **Source**: [Kaggle - Brain MRI Images for Brain Tumor Detection](https://www.kaggle.com/datasets/ahmedhamada0/brain-tumor-detection)
+- Contains MRI images divided into `tumor` and `no_tumor` categories.
 
 ## Installation
-
-### Prerequisites
-
-- Python 3.8 or higher
-- Virtual Environment (venv)
-- Required Python packages listed in `requirements.txt`
-
-### Setup Instructions
-
-1. **Clone the repository**:
+1. Clone the repository.
+2. Create a virtual environment and install dependencies:
    ```bash
-   git clone https://github.com/yourusername/brain_mri_project.git
-   cd brain_mri_project
+   python -m venv venv
+   source venv/bin/activate  # For Windows: .\venv\Scripts\activate
+   pip install -r requirements.txt
    ```
 
-2. **Create and activate a virtual environment**:
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate  # Linux/Mac
-   .\venv\Scripts\activate  # Windows
-   ```
+## Usage
+1. **Training the Model**:
+   - Preprocesses the data and trains a CNN model.
+   - Run:
+     ```bash
+     python scripts/train_model.py
+     ```
 
-3. **Install dependencies**:
-   ```bash
-   ```
+2. **Deploying with Flask**:
+   - Start the Flask server:
+     ```bash
+     python app.py
+     ```
+   - Use Postman to send a POST request with an MRI image for prediction.
 
-4. **Download and place the dataset**:
-   - Download the dataset from Kaggle and place it in the `data/` directory.
+## Results
+- The model outputs the probability of the presence of a tumor.
+- Visualize training accuracy and loss using `matplotlib`.
 
-## Running the Project
-
-### Data Preparation
-Run the following command to prepare the data:
-```bash
-python prepare_data.py
-```
-This script will load, resize, and normalize the MRI images, saving them in a format suitable for model training.
-
-### Model Training
-Train the CNN model using the following command:
-```bash
-python train_model.py
-```
-The trained model will be saved as `brain_mri_model.h5`.
-
-### Running the Flask App
-To serve the model as a REST API, run:
-```bash
-python app.py
-```
-The Flask server will be available at `http://127.0.0.1:5000`.
-
-### Testing the API
-You can test the `/predict` endpoint using Postman or cURL. Example with Postman:
-- Send a **POST** request to `http://127.0.0.1:5000/predict` with an MRI image file as form-data under the key `file`.
-- The response will contain the prediction (`"Tumor"` or `"No Tumor"`).
-
-## License
-This project is open-source and available under the MIT License.
+## Acknowledgments
+- Data sourced from [Kaggle - Brain MRI Images for Brain Tumor Detection](https://www.kaggle.com/datasets/ahmedhamada0/brain-tumor-detection).
 ```
